@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Nop Commerce Login Tests">
+<!--        <parameter name="emailId" value="admin@yourstore.com"></parameter>-->
+<!--        <parameter name="password" value="admin"></parameter>-->
+        <classes>
+            <class name="testcases.LoginTests"></class>
+        </classes>
+    </test>
+</suite>
