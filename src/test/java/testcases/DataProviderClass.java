@@ -1,10 +1,5 @@
 package testcases;
 
-import Pages.LoginPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class DataProviderClass {
@@ -19,5 +14,10 @@ public class DataProviderClass {
                 {"admin123@yourstore.com", "admin123"},
                 {"admin@yourstore.com",""},
                 {"ksdh@gmail.com", ""}};
+    }
+
+    @DataProvider(name = "EmptyEmailDataProvider")
+    public Object[][] getEmptyEmailData(){
+        return new Object[][]{{"", "admin"}, {"", "admin123"}};
     }
 }

@@ -2,6 +2,7 @@ package testcases;
 
 import Pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -25,7 +26,7 @@ public class LoginTests{
     }
 
     /***
-     * This test case if for validating whether the login is successful given the correct userId and password
+     * This test case is for validating whether the login is successful given the correct emailId and password
      * @param emailId
      * @param password
      */
@@ -38,7 +39,7 @@ public class LoginTests{
     }
 
     /***
-     * This test case if for validating whether the login page error is thrown when invalid userId and password
+     * This test case is for validating whether the login page error is thrown when invalid emailId and password
      * @param emailId
      * @param password
      */
@@ -49,6 +50,18 @@ public class LoginTests{
         clickLoginForInValidCredentials();
     }
 
+    /***
+     * This test case is for validating whether the login page error is thrown when empty emailId and password
+     * @param emailId
+     * @param password
+     */
+    @Test(priority = 3, dataProviderClass = DataProviderClass.class, dataProvider = "EmptyEmailDataProvider")
+    void loginTestWithoutEmail(Object emailId, Object password){
+        loginPage.setTextEmail((String) emailId);
+        loginPage.setTextPassword((String) password);
+        clickLoginForEmptyEmail();
+    }
+
     private void clickLoginForValidCredentials(){
         loginPage.clickLoginButton();
         Assert.assertEquals("Dashboard / nopCommerce administration", loginPage.getTitle());
@@ -57,6 +70,11 @@ public class LoginTests{
     private void clickLoginForInValidCredentials(){
         loginPage.clickLoginButton();
         Assert.assertTrue(driver.getPageSource().contains("Login was unsuccessful."));
+    }
+
+    private void clickLoginForEmptyEmail(){
+        loginPage.clickLoginButton();
+        Assert.assertTrue(driver.findElement(By.id("Email-error")).isDisplayed());
     }
 
     private void clickLogout(){
