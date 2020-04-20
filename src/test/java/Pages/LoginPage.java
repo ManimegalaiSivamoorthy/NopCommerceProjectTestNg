@@ -34,6 +34,7 @@ public class LoginPage {
     @CacheLookup
     WebElement logoutButton;
 
+
     //Action Methods
 
     public void setTextEmail(String email){
