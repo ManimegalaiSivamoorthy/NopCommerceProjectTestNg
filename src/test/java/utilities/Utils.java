@@ -12,8 +12,16 @@ public class Utils {
         this.driver = driver;
     }
 
-    public void WaitForElement(WebElement element, long timeOutSeconds){
+    public void waitForElement(WebElement element, long timeOutSeconds){
         WebDriverWait wait = new WebDriverWait(driver, timeOutSeconds);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitForSeconds(long seconds){
+        try {
+            Thread.sleep(seconds * 1000);
+        }catch (Exception e){
+            System.out.println("wait failed" + e);
+        }
     }
 }
