@@ -62,7 +62,7 @@ public class LoginTests{
         clickLoginForEmptyEmail();
     }
 
-    private void clickLoginForValidCredentials(){
+    public void clickLoginForValidCredentials(){
         loginPage.clickLoginButton();
         Assert.assertEquals("Dashboard / nopCommerce administration", loginPage.getTitle());
     }
