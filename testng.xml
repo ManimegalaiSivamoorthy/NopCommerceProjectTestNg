@@ -6,6 +6,9 @@
 <!--        <parameter name="password" value="admin"></parameter>-->
         <classes>
             <class name="testcases.LoginTests"></class>
+            <class name="testcases.AddNewCustomerTests"></class>
+            <class name="testcases.SearchingCustomerByIdTests"></class>
+            <class name="testcases.SearchingCustomerByNameTests"></class>
         </classes>
     </test>
 </suite>
