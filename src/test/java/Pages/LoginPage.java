@@ -34,27 +34,28 @@ public class LoginPage {
     @CacheLookup
     WebElement logoutButton;
 
+
     //Action Methods
 
     public void setTextEmail(String email){
-        utils.WaitForElement(textEmail,30);
+        //utils.waitForElement(textEmail,30);
         textEmail.clear();
         textEmail.sendKeys(email);
     }
 
     public void setTextPassword(String password){
-        utils.WaitForElement(textPassword, 30);
+       // utils.waitForElement(textPassword, 30);
         textPassword.clear();
         textPassword.sendKeys(password);
     }
 
     public void clickLoginButton(){
-        utils.WaitForElement(loginButton,30);
+        //utils.waitForElement(loginButton,30);
         loginButton.click();
     }
 
     public void clickLogoutButton(){
-        utils.WaitForElement(logoutButton,30);
+        utils.waitForElement(logoutButton,30);
         logoutButton.click();
     }
 
